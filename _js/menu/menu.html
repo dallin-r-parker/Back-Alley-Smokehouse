@@ -1,0 +1,65 @@
+<main class="menuContainer">
+  <!-- Smoker -->
+  <h2 class="sectionHeader">Right From the Smoker</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuItemContainer" ng-repeat="x in smokerContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+  <!-- originals -->
+  <h2 class="sectionHeader">Back Alley Originals</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuItemContainer" ng-repeat="x in originalsContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+  <!-- wings -->
+  <h2 class="sectionHeader">Wings</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuItemContainer" ng-repeat="x in wingsContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+  <!-- Starters -->
+  <h2 class="sectionHeader">Starters</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuSideContainer" ng-repeat="x in startersContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+  <!-- Sides -->
+  <h2 class="sectionHeader">Sides</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuSideContainer" ng-repeat="x in sidesContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+  <!-- extras -->
+  <h2 class="sectionHeader">Extras</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuSideContainer" ng-repeat="x in extrasContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+  <!-- kids -->
+  <h2 class="sectionHeader">Kids Menu</h2>
+  <div class="menuSectionContainer" >
+    <div class="menuSideContainer" ng-repeat="x in kidsContents()">
+      <h3 class="menuItem">{{x.item}}</h3>
+      <p>  {{x.description}} </p>
+      <h4 class="price">{{x.price | currency}}</h4>
+    </div>
+  </div>
+</main>
