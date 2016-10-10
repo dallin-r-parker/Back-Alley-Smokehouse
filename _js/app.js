@@ -28,12 +28,7 @@ angular.module('backAlley', ['ui.router'])
         controller: 'contactCtrl'
 
       })
-      .state('about', {
-        url: '/about',
-        templateUrl: './_js/about/about.html',
-        controller: 'aboutCtrl'
-
-      })
+    
 
 
 })
