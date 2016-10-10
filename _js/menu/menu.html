@@ -1,9 +1,9 @@
 <main class="menuContainer">
   <!-- Smoker -->
   <h2 class="sectionHeader">Right From the Smoker</h2>
-  <div class="menuSectionContainer" >
-    <div class="menuItemContainer" ng-repeat="x in smokerContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+  <div class="menuSectionContainer">
+    <div class="menuItemContainer"  ng-repeat="x in smokerContents()" >
+      <h3 class="menuItem"  ng-click="caller(x)" >{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
@@ -12,7 +12,7 @@
   <h2 class="sectionHeader">Back Alley Originals</h2>
   <div class="menuSectionContainer" >
     <div class="menuItemContainer" ng-repeat="x in originalsContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+      <h3 class="menuItem" ng-click="caller(x)">{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
@@ -21,7 +21,7 @@
   <h2 class="sectionHeader">Wings</h2>
   <div class="menuSectionContainer" >
     <div class="menuItemContainer" ng-repeat="x in wingsContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+      <h3 class="menuItem" ng-click="caller(x)">{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
@@ -30,7 +30,7 @@
   <h2 class="sectionHeader">Starters</h2>
   <div class="menuSectionContainer" >
     <div class="menuSideContainer" ng-repeat="x in startersContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+      <h3 class="menuItem" ng-click="caller(x)">{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
@@ -39,7 +39,7 @@
   <h2 class="sectionHeader">Sides</h2>
   <div class="menuSectionContainer" >
     <div class="menuSideContainer" ng-repeat="x in sidesContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+      <h3 class="menuItem" ng-click="caller(x)">{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
@@ -48,7 +48,7 @@
   <h2 class="sectionHeader">Extras</h2>
   <div class="menuSectionContainer" >
     <div class="menuSideContainer" ng-repeat="x in extrasContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+      <h3 class="menuItem" ng-click="caller(x)">{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
@@ -57,9 +57,74 @@
   <h2 class="sectionHeader">Kids Menu</h2>
   <div class="menuSectionContainer" >
     <div class="menuSideContainer" ng-repeat="x in kidsContents()">
-      <h3 class="menuItem">{{x.item}}</h3>
+      <h3 class="menuItem" ng-click="caller(x)">{{x.item}}</h3>
       <p>  {{x.description}} </p>
       <h4 class="price">{{x.price | currency}}</h4>
     </div>
   </div>
 </main>
+
+<!-- background of modal -->
+<div class="bagAdderBackground" ng-show="called"></div>
+<!-- foreground -->
+<div class="bagAdderContainer" ng-show="called" >
+  <div class="bagAdder" ng-show="called" >
+    <!-- contents -->
+    <div class="itemOrderContainer">
+        <!-- header -->
+      <div class="itemTopRow">
+      <h2 class="orderItem">{{selectedItem.item}}</h2>
+      <h3 class="qty">Qty:</h3>
+      <h3 class="qCounter">{{selectedItem.quantity}}</h3>
+      <div class="qIncrementer">
+        <div class="arrow-up" ng-click="incrementer()"></div>
+        <div class="arrow-down" ng-click="decrementer()"></div>
+        </div>
+    </div>
+    <!-- guts of the contents -->
+      <div class="sauceOmeter" ng-show="innerCalled">
+        <h3 class ="heat">Choose your sauce</h3>
+        <div class="sauceOmeterImage">
+          <div class="sauceBottles">
+            <img src="../_images/sauceBottle.png" alt="" />
+            <img src="../_images/sauceBottle.png" alt="" />
+            <img src="../_images/sauceBottle.png" alt="" />
+            <img src="../_images/sauceBottle.png" alt="" />
+          </div>
+      </div>
+      <div class="sauceLabels">
+        <h5 ng-click="mildSauce()" class="sLabel ">Mild</h5>
+        <h5 ng-click="raspberrySauce()"class="sLabel ">Raspberry Chipotle</h5>
+        <h5 ng-click="mediumSauce()"class="sLabel ">Medium</h5>
+        <h5 ng-click="hotSauce()"class="sLabel ">Hot</h5>
+    </div>
+      <div class="warning">
+        <h3>{{selectedItem.sauceKind}}</h3>
+        <p ng-show="warning">WARNING!  We're not messing around here.</p>
+      </div>
+    </div>
+    <div class="instructionsContainer">
+      <h3 class="specialInstructions">Any special instructions?</h3>
+      <input ng-model="selectedItem.instructions" class= "instructions" type="text"  placeholder="Example: No pickles, please." value="">
+    </div>
+    <!-- subtotal -->
+    <div class="tally">
+        <h3 class="itemSubtotal">Subtotal</h3>
+        <h3 class="itemTotal">{{selectedItem.itemTotal | currency}}</h3>
+    </div>
+
+<!-- buttons -->
+    <div class="buttonHolder">
+      <div class="submitButton" ng-click="submitter()"></div>
+      <div class="buttonStripe">
+        <div class="cancelButton" ng-click="uncaller()"><p>I changed my mind.</p></div>
+        <div class="submitLabel" ng-click="submitter()"><p>Add to Bag</p></div>
+      </div>
+    </div>
+
+
+    </div>
+
+<!-- modal closers -->
+  </div>
+</div>

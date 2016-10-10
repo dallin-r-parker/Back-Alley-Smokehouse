@@ -1,4 +1,55 @@
-<main class="stateContainer">
+<main class="bagContainer">
+
+  <div class="orderContainer">
+    <h2 class="yourOrder">Your Carryout Order</h2>
+    <div class="cartItemContainer"  ng-repeat="x in bagInfo" >
+      <div class="cartTopRow">
+        <h3 class="cartItem">{{x.item}}</h3>
+        <h5 class="cartQty">Qty: {{x.quantity}}</h5>
+        <h5 class="cartPrice"><span class="cText">Subtotal: </span>{{x.itemTotal | currency}}</h5>
+      </div>
+      <div class="cartSecondRow">
+        <h5 class="cartSauce">Sauce: {{x.sauceKind}}</h5>
+      </div>
+      <div class="cartThirdRow">
+        <p class="cartInstructions">{{x.instructions}}</p>
+      </div>
+<!-- prices -->
+      </div>
+      <div class="priceContainer">
+        <div class="priceGroup">
+          <h5 class='priceText cText'>Subtotal:</h5>
+          <div class="priceBox"><h3>{{subTotal() | currency}}</h3></div>
+        </div>
+        <div class="priceGroup">
+          <h5 class='priceText cText'>Tax:</h5>
+          <div class="priceBox"><h3>{{tax() | currency}}</h3></div>
+        </div>
+        <div class="priceGroup">
+          <h5 class='priceText cText'>Total:</h5>
+          <div class="priceBox"><h3>{{grandTotal() | currency}}</h3></div>
+        </div>
+    </div>
+    <!-- submit buttons -->
+            <div class="submitContainer">
+              <div class="submitter">
+                <h5 class='subText'>Your Name:</h5>
+                <input class="customerSubmit" type="text" ng-model="customerName" value="" placeholder="Enter Name Here">
+              </div>
+              <div class="submitter">
+                <h5 class='subText'>Your Number:</h5>
+                <input class="customerSubmit" type="text" ng-model="customerNumber" value="" placeholder="555-555-5555">
+              </div>
+              <div class="submitter">
+                <h5 class='subText'>Your E-mail:</h5>
+                <input class="customerSubmit" type="text" ng-model="customerEmail" value="" placeholder="customer@email.com">
+              </div>
+              <div class="submitter">
+                <div class="finalSubmit"><h2>submit</h2></div>
+              </div>
+            </div>
+  </div>
+
 
 
 </main>

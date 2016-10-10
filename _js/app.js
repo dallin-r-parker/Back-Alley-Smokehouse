@@ -22,10 +22,10 @@ angular.module('backAlley', ['ui.router'])
         controller: 'bagCtrl'
 
       })
-      .state('swag', {
-        url: '/swag',
-        templateUrl: './_js/swag/swag.html',
-        controller: 'swagCtrl'
+      .state('contact', {
+        url: '/contact',
+        templateUrl: './_js/contact/contact.html',
+        controller: 'contactCtrl'
 
       })
       .state('about', {
