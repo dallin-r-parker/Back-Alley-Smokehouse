@@ -473,10 +473,10 @@ this.menu = [
 angular.module('backAlley').service('sShowService', function(){
 
 this.sShow = [
-  "../_images/roast.png",
-  "../_images/brisket.jpg",
-  '../_images/pulled_pork.jpg',
-  "../_images/prime_rib.png"
+  "../images/roast.png",
+  "../images/brisket.jpg",
+  '../images/pulled_pork.jpg',
+  "../images/prime_rib.png"
 
 ]
 

@@ -1,6 +1,6 @@
 angular.module('backAlley').controller('homeCtrl', function($scope, sShowService, $timeout ){
 
-$scope.nextImage = "./_images/brisket.jpg";
+$scope.nextImage = "./images/brisket.jpg";
 
 
 // COUNTER
