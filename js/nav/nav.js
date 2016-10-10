@@ -2,7 +2,7 @@ angular.module('backAlley')
 .directive('baNav', function(){
 return{
   restrict: 'E',
-  templateUrl: './_js/nav/nav.html',
+  templateUrl: './js/nav/nav.html',
   link: function( scope, element, attributes ) {
 
     $('.navBtn').hover(function(){

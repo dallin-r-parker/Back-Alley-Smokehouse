@@ -2,7 +2,7 @@ angular.module('backAlley')
 .directive('slideShow', function(sShowService, $controller){
 return{
   restrict: 'E',
-  templateUrl: './_js/home/slideshow.html',
+  templateUrl: './js/home/slideshow.html',
   controller: function($scope){
 
     $scope.timeOutCounter = function() {
