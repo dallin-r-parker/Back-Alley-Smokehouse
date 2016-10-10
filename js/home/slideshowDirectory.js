@@ -1,41 +1,32 @@
 angular.module('backAlley')
-.directive('slideShow', function(sShowService, $controller){
+.directive('slideShow', function(sShowService, $timeout){
 return{
   restrict: 'E',
   templateUrl: './js/home/slideshow.html',
-  controller: function($scope){
+  link: function( scope, element, attributes ) {
 
-    $scope.timeOutCounter = function() {
+    // counter
+
+    timeOutCounter = function() {
       for (var i = 0; i <= 30; i++) {
-        setTimeout(function(i) {
+        $timeout(function(i) {
           return function() {
-          $scope.newScope(i);
-          $scope.$apply();
+            nextImage = newScope(i);
           }
         }(i), i * 4000)
       }
     }
-    $scope.timeOutCounter()
-
-    $scope.sShower = sShowService.sShow;
-
-    $scope.newScope = function(i){
-      i = i%$scope.sShower.length;
-        $scope.nextImage = $scope.sShower[i];
-        $('.slideShower').css("background-image",'url:(' + $scope.nextImage + ')');
-        console.log($scope.nextImage);
+    timeOutCounter()
+// inject sShow
+    sShower = sShowService.sShow;
+// function to run during counter
+    newScope = function(i){
+      i = i%sShower.length;
+        nextImage = sShower[i];
+      $('.slideShower').css('background-color','blue');
+      $('.slideShower').css("'background-image', 'url(" + nextImage + ")'");
+      console.log('"background-image", "url(' + nextImage + ')"');
     }
-
-    // $scope.nShow = "{'background-image' : 'url:(" + $scope.nextImage + ")'}";
-
-
-   $('.slideShower').css("background-image",'url:(' + $scope.nextImage + ')');
-
-
   }
-
-
-}
-
-
+  }
 })

@@ -136,12 +136,8 @@ h3{
   background-size: cover;
 }
 
-.slide img {
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-}
+
+
 
 .specialContainer{
   width: 70vw;
@@ -479,6 +475,20 @@ h3{
   background-color: white;
   margin: auto;
   background-image: url('../images/placeholder_map.png');
+}
+
+.infoContainer{
+  width: 90%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.infoHeader{
+  margin-bottom: 10px;
+  color: #9e0c0c;
 }
 
 /*ABOUT US*/
